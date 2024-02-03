@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory name="sf">
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/perfumer</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <mapping class="com.entities.Order" />
+        <mapping class="com.entities.Contact" />
+        <mapping class="com.entities.Product" />
+        <mapping class="com.entities.Rating" />
+        <mapping class="com.entities.User" />
+        <mapping class="com.entities.Cart" />
+        <mapping class="com.entities.Category" />
+        <mapping class="com.entities.Checkout" />
+        <mapping class="com.entities.Admincoupon" />
+        <mapping class="com.entities.Wishlist" />
+        <mapping class="com.entities.Admin" />
+        <mapping class="com.entities.Usercoupon" />
+    </session-factory>
+</hibernate-configuration>

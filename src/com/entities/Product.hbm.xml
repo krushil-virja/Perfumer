@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 19 Oct, 2023 4:05:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.entities.Product" table="product" catalog="perfumer">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="category" class="com.entities.Category" fetch="select">
+            <column name="cid" />
+        </many-to-one>
+        <property name="pname" type="string">
+            <column name="pname" length="100" />
+        </property>
+        <property name="pimage1" type="string">
+            <column name="pimage1" length="100" />
+        </property>
+        <property name="pbrand" type="string">
+            <column name="pbrand" length="100" />
+        </property>
+        <property name="price" type="java.lang.Integer">
+            <column name="price" />
+        </property>
+        <property name="discription" type="string">
+            <column name="discription" length="2000" />
+        </property>
+        <property name="information" type="string">
+            <column name="information" length="2000" />
+        </property>
+        <property name="pimage2" type="string">
+            <column name="pimage2" length="100" />
+        </property>
+        <property name="pimage3" type="string">
+            <column name="pimage3" length="100" />
+        </property>
+        <property name="pimage4" type="string">
+            <column name="pimage4" length="100" />
+        </property>
+        <property name="timedurestion" type="string">
+            <column name="timedurestion" length="100" />
+        </property>
+        <set name="orders" table="order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="com.entities.Order" />
+        </set>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="com.entities.Cart" />
+        </set>
+        <set name="ratings" table="rating" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="com.entities.Rating" />
+        </set>
+        <set name="wishlists" table="wishlist" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pid" />
+            </key>
+            <one-to-many class="com.entities.Wishlist" />
+        </set>
+    </class>
+</hibernate-mapping>
